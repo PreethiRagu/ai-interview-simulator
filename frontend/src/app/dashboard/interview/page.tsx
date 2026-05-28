@@ -1,14 +1,13 @@
-
 "use client";
 export const dynamic = 'force-dynamic';
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { interviewOptions } from "../../../data/interviewOptions";
 import { ConfigForm, type InterviewConfig } from "../../../components/interview/ConfigForm";
 import { InterviewEngine } from "../../../components/interview/InterviewEngine";
 import { ResumeUploader, type ResumeAnalysis } from "../../../components/interview/ResumeUploader";
 
-export default function InterviewPage() {
+function InterviewPageContent() {
   const searchParams = useSearchParams();
   const [selectedDomain, setSelectedDomain] = useState<string | null>(searchParams.get("domain"));
   const [selectedRole, setSelectedRole] = useState<string | null>(searchParams.get("role"));
@@ -16,11 +15,9 @@ export default function InterviewPage() {
   const [resumeAnalysis, setResumeAnalysis] = useState<ResumeAnalysis | null>(null);
   const [started, setStarted] = useState(false);
 
-  // 1. Selection Stage
   if (!selectedDomain) {
     return (
       <main className="p-8">
-        {/* NEW: Resume Upload Section */}
         <div className="mb-10 p-6 bg-indigo-900/20 border border-indigo-500/30 rounded-2xl">
           <h2 className="text-xl font-bold mb-2">Personalize your Interview</h2>
           <p className="text-slate-400 mb-4 text-sm">Upload your PDF resume to receive tailored questions.</p>
@@ -29,7 +26,6 @@ export default function InterviewPage() {
             <p className="mt-3 text-sm text-emerald-300">Resume context ready for this interview.</p>
           )}
         </div>
-
         <h1 className="text-2xl font-bold mb-6">Select your Domain</h1>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {interviewOptions.map((opt) => (
@@ -43,7 +39,6 @@ export default function InterviewPage() {
     );
   }
 
-  // 2. Role Selection Stage
   if (!selectedRole) {
     const domainData = interviewOptions.find(d => d.domain === selectedDomain);
     return (
@@ -62,7 +57,6 @@ export default function InterviewPage() {
     );
   }
 
-  // 3. Configuration Stage
   if (!started) {
     return (
       <main className="p-8">
@@ -72,7 +66,6 @@ export default function InterviewPage() {
     );
   }
 
-  // 4. Interview Engine Stage
   if (!config || !selectedDomain || !selectedRole) {
     return (
       <main className="p-8">
@@ -90,5 +83,13 @@ export default function InterviewPage() {
     <main className="p-8">
       <InterviewEngine config={config} domain={selectedDomain} role={selectedRole} resumeAnalysis={resumeAnalysis} />
     </main>
+  );
+}
+
+export default function InterviewPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <InterviewPageContent />
+    </Suspense>
   );
 }
