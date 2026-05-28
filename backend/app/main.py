@@ -19,5 +19,5 @@ app.add_middleware(
 def home():
     return {"message": "Backend AI running 🚀"}
 
-# attach AI routes
+# attach routes
 app.include_router(interview_router, prefix="/api/interview")
