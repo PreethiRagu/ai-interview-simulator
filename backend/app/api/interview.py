@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-from app.services.ai_service import start_interview, continue_interview
+from services.ai_service import start_interview, continue_interview
 
 router = APIRouter()
 
