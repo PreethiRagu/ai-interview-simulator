@@ -5,6 +5,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from api.interview import router as interview_router
 
+
 app = FastAPI(title="AI Interview Simulator API")
 
 app.add_middleware(
