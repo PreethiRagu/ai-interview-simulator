@@ -20,10 +20,13 @@ export const ResumeUploader = ({ onAnalysisComplete }: { onAnalysisComplete: (da
     formData.append("file", file);
 
     try {
-      const res = await fetch("https://ai-interview-simulator-3-tdyl.onrender.com/analyze-resume", {
-        method: "POST",
-        body: formData,
-      });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/analyze-resume`,
+    {
+      method: "POST",
+      body: formData,
+    }
+  );
 
       if (!res.ok) {
         throw new Error(`Resume API returned ${res.status}`);
