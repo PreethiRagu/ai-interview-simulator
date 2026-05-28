@@ -43,7 +43,9 @@ export default function DashboardPage() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await fetch(`https://ai-interview-simulator-3-tdyl.onrender.com=${encodeURIComponent(getUserEmail())}`);
+        const res = await fetch(
+  `${process.env.NEXT_PUBLIC_API_URL}/dashboard-stats?userEmail=${encodeURIComponent(getUserEmail())}`
+);
         if (res.ok) {
           const data = await res.json();
           const backendStats: DashboardStats = {
