@@ -57,7 +57,7 @@ type LanguageOption = {
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL ||
   process.env.NEXT_PUBLIC_API_URL ||
-  "http://localhost:5000";
+  "https://ai-interview-simulator-3-tdyl.onrender.com";
 
 const languageOptions: LanguageOption[] = [
   { label: "JavaScript", value: "javascript", template: "function solve(input) {\n  // Write your solution here\n  return input;\n}" },
