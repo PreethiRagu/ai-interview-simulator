@@ -1,5 +1,4 @@
 "use client";
-export const runtime = "nodejs";
 import { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { interviewOptions } from "../../../data/interviewOptions";
