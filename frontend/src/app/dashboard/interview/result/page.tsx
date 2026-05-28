@@ -99,7 +99,7 @@ export default function InterviewResultPage() {
   useEffect(() => {
     const fetchLatestResult = async () => {
       try {
-        const res = await fetch(`http://127.0.0.1:8000/interview-results/latest?userEmail=${encodeURIComponent(getUserEmail())}`);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/interview-results/latest?userEmail=${encodeURIComponent(getUserEmail())}`);
         if (!res.ok) {
           throw new Error(`Result API returned ${res.status}`);
         }

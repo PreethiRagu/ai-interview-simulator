@@ -42,7 +42,7 @@ export default function DashboardPage() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await fetch(`http://127.0.0.1:8000/get-dashboard-stats?userEmail=${encodeURIComponent(getUserEmail())}`);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/get-dashboard-stats?userEmail=${encodeURIComponent(getUserEmail())}`);
         if (res.ok) {
           const data = await res.json();
           const backendStats: DashboardStats = {
