@@ -49,7 +49,7 @@ type LanguageOption = {
   template: string;
 };
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "${process.env.NEXT_PUBLIC_API_URL}";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || process.env.NEXT_PUBLIC_API_URL;
 
 const languageOptions: LanguageOption[] = [
   { label: "JavaScript", value: "javascript", template: "function solve(input) {\n  // Write your solution here\n  return input;\n}" },
