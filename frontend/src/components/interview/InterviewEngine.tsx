@@ -1,7 +1,12 @@
 "use client";
+
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import Editor from "@monaco-editor/react";
+import dynamic from "next/dynamic";
+
+const Editor = dynamic(() => import("@monaco-editor/react"), {
+  ssr: false,
+});
 import type { InterviewConfig } from "./ConfigForm";
 import type { ResumeAnalysis } from "./ResumeUploader";
 
@@ -49,7 +54,10 @@ type LanguageOption = {
   template: string;
 };
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || process.env.NEXT_PUBLIC_API_URL;
+const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_BASE_URL ||
+  process.env.NEXT_PUBLIC_API_URL ||
+  "http://localhost:5000";
 
 const languageOptions: LanguageOption[] = [
   { label: "JavaScript", value: "javascript", template: "function solve(input) {\n  // Write your solution here\n  return input;\n}" },
@@ -306,7 +314,7 @@ export const InterviewEngine = ({
     if (!config || !domain || !role) return;
 
     const controller = new AbortController();
-    const timeoutId = window.setTimeout(() => controller.abort(), 8000);
+    const timeoutId = setTimeout(() => controller.abort(), 8000);
 
     const fetchQuestions = async () => {
       try {
@@ -346,7 +354,7 @@ export const InterviewEngine = ({
           ? "Backend AI is not connected, so this session is using resume-based local questions."
           : "Backend AI is not connected, so this session is using generated practice questions.");
       } finally {
-        window.clearTimeout(timeoutId);
+        clearTimeout(timeoutId);
         setLoading(false);
       }
     };
@@ -354,18 +362,30 @@ export const InterviewEngine = ({
     fetchQuestions();
 
     return () => {
-      window.clearTimeout(timeoutId);
+      clearTimeout(timeoutId);
       controller.abort();
     };
   }, [config, domain, role, resumeAnalysis]);
 
   useEffect(() => {
-    if (config?.mode === "Voice" && questions.length > 0 && questions[currentQuestion]) {
-      const utterance = new SpeechSynthesisUtterance(questions[currentQuestion]);
+  if (
+    config?.mode === "Voice" &&
+    questions.length > 0 &&
+    questions[currentQuestion]
+  ) {
+    if (
+      typeof window !== "undefined" &&
+      "speechSynthesis" in window
+    ) {
+      const utterance = new SpeechSynthesisUtterance(
+        questions[currentQuestion]
+      );
+
       window.speechSynthesis.cancel();
       window.speechSynthesis.speak(utterance);
     }
-  }, [currentQuestion, questions, config]);
+  }
+}, [currentQuestion, questions, config]);
 
   const startListening = () => {
     const speechWindow = window as SpeechRecognitionWindow;

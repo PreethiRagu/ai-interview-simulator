@@ -1,10 +1,18 @@
 "use client";
-export const dynamic = 'force-dynamic';
+export const runtime = "nodejs";
 import { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { interviewOptions } from "../../../data/interviewOptions";
 import { ConfigForm, type InterviewConfig } from "../../../components/interview/ConfigForm";
-import { InterviewEngine } from "../../../components/interview/InterviewEngine";
+import dynamic from "next/dynamic";
+
+const InterviewEngine = dynamic(
+  () =>
+    import("../../../components/interview/InterviewEngine").then(
+      (mod) => mod.InterviewEngine
+    ),
+  { ssr: false }
+);
 import { ResumeUploader, type ResumeAnalysis } from "../../../components/interview/ResumeUploader";
 
 function InterviewPageContent() {
