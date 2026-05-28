@@ -403,3 +403,16 @@ async def get_dashboard_stats(userEmail: str | None = None):
         "weakTopics": list(dict.fromkeys(row["type"] for row in recent_rows))[:3],
         "recentlyPracticed": list(dict.fromkeys(row["role"] for row in recent_rows))[:4],
     }
+def start_interview(role: str):
+    return {
+        "message": f"Interview started for {role}",
+        "question": "Tell me about yourself"
+    }
+
+def continue_interview(session_id: int, answer: str):
+    return {
+        "session_id": session_id,
+        "feedback": "Good answer",
+        "next_question": "What are your strengths?"
+    }
+
