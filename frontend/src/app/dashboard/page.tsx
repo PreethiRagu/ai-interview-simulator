@@ -44,7 +44,7 @@ export default function DashboardPage() {
     const fetchStats = async () => {
       try {
         const res = await fetch(
-  `${process.env.NEXT_PUBLIC_API_URL}/dashboard-stats?userEmail=${encodeURIComponent(getUserEmail())}`
+  `${process.env.NEXT_PUBLIC_API_URL}/get-dashboard-stats?userEmail=${encodeURIComponent(getUserEmail())}`
 );
         if (res.ok) {
           const data = await res.json();
