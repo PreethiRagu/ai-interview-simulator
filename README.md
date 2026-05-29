@@ -1,4 +1,4 @@
-# 🤖 AI Interview Simulator
+#  AI Interview Simulator
 
 > A placement-level AI-powered interview preparation platform that helps students practice interviews with real-time feedback, resume analysis, and performance analytics.
 
@@ -10,84 +10,84 @@
 
 ---
 
-## 📌 About
+## About
 
 AI Interview Simulator is a full-stack SaaS-style web application built by **PreethiRaghu** for placement preparation. It simulates real interview experiences using AI, analyzes resumes, generates personalized questions, and provides detailed performance feedback — making it stand out as a startup-level project.
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
-### 🏠 Landing Page
+### Landing Page
 ![Landing Page](./screenshot_landing.png)
 > Hero section with AI demo preview, CTA buttons, and modern dark SaaS design.
 
 ---
 
-### 🔐 Login Page
+### Login Page
 ![Login Page](./screenshot_login.png)
 > Clean two-panel login with live interview stats preview on the right.
 
 ---
 
-### 📊 Dashboard
+### Dashboard
 ![Dashboard](./screenshot_dashboard.png)
 > Analytics dashboard showing total interviews, average score, communication score, daily streak, performance trends chart, weak topic analysis, and recently practiced roles.
 
 ---
 
-### 🌐 Domain Selection
+### Domain Selection
 ![Domain Selection](./screenshot_domain.png)
 > Choose from 8+ domains: IT, Mechanical, Healthcare, Finance, Marketing, Data Science, Cybersecurity, Cloud Computing. Also supports PDF resume upload for personalized questions.
 
 ---
 
-### 👔 Role Selection
+### Role Selection
 ![Role Selection](./screenshot_role.png)
 > Select a specific job role within the chosen domain (e.g., Data Analyst, Machine Learning Engineer, BI Developer).
 
 ---
 
-### ⚙️ Interview Configuration
+### Interview Configuration
 ![Interview Config](./screenshot_config.png)
 > Configure difficulty level, interview type (HR/Technical/Behavioral/Coding), number of questions, timer, and mode (Typing/Voice).
 
 ---
 
-### 🎤 AI Interview Interface
+### AI Interview Interface
 ![Interview Interface](./screenshot_interview.png)
 > Live interview screen with AI Interviewer avatar, question display, answer input, real-time analytics (Confidence, Communication Speed, Filler Words), and interview progress tracker.
 
 ---
 
-### 📈 Interview Results
+### Interview Results
 ![Interview Results](./screenshot_results.png)
 > Detailed result page with Overall Score, Technical Score, Communication, Confidence, Score Breakdown chart, and AI Feedback Summary.
 
 ---
 
-### 💬 Question-by-Question Feedback
+### Question-by-Question Feedback
 ![Question Feedback](./screenshot_feedback.png)
 > Detailed per-question evaluation with individual scores and feedback for every answer submitted.
 
 ---
 
-### 🗺️ Strengths, Weaknesses & Improvement Roadmap
+### Strengths, Weaknesses & Improvement Roadmap
 ![Strengths and Weaknesses](./screenshot_strengths.png)
 > AI-generated strengths, weaknesses, improvement roadmap, and suggested learning resources based on performance.
 
 ---
 
-## ✨ Features
+##  Features
 
-### 🎯 Core Features
+### Core Features
 - **AI-Powered Interview Questions** — Generated using Groq LLaMA 3.1 based on domain, role, difficulty, and type
 - **Resume Upload & Analysis** — Upload PDF resume; AI extracts skills and generates personalized questions
 - **Multiple Interview Types** — HR, Technical, Behavioral, and Coding rounds
 - **Real-time Feedback** — Confidence score, communication score, and technical evaluation
 - **Coding Round** — Online code editor with AI complexity analysis and hint generation
 
-### 📊 Dashboard & Analytics
+### Dashboard & Analytics
 - Total interviews attended
 - Average score tracking
 - Communication score trends
@@ -96,15 +96,15 @@ AI Interview Simulator is a full-stack SaaS-style web application built by **Pre
 - Recently practiced roles
 - Performance trend charts
 
-### 🏢 Domain Support
+### Domain Support
 IT, Mechanical, Healthcare, Finance, Marketing, Data Science, Cybersecurity, Cloud Computing
 
-### 👔 Job Role Support
+### Job Role Support
 Frontend Developer, Backend Developer, Java Developer, Data Analyst, HR Executive, Machine Learning Engineer, BI Developer, and more
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -148,7 +148,7 @@ Frontend Developer, Backend Developer, Java Developer, Data Analyst, HR Executiv
 
 ---
 
-## 🗄️ Database Schema
+## Database Schema
 
 ### `users` table
 | Column | Type | Description |
@@ -182,7 +182,7 @@ Frontend Developer, Backend Developer, Java Developer, Data Analyst, HR Executiv
 
 ---
 
-## 🔄 User Flow
+##  User Flow
 
 ```
 1. Landing Page
@@ -234,7 +234,7 @@ Frontend Developer, Backend Developer, Java Developer, Data Analyst, HR Executiv
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -248,7 +248,7 @@ Frontend Developer, Backend Developer, Java Developer, Data Analyst, HR Executiv
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ai-interview-simulator/
@@ -275,7 +275,7 @@ ai-interview-simulator/
 
 ---
 
-## 📡 API Endpoints
+## API Endpoints
 
 | Method | Endpoint | Description |
 |---|---|---|
@@ -291,7 +291,7 @@ ai-interview-simulator/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js 18+
@@ -333,7 +333,7 @@ DATABASE_URL=your_postgresql_url
 
 ---
 
-## 📦 Backend Dependencies
+## Backend Dependencies
 
 ```
 fastapi
@@ -348,7 +348,7 @@ psycopg2-binary
 
 ---
 
-## 🌐 Deployment
+## Deployment
 
 | Service | Platform | URL |
 |---|---|---|
@@ -360,7 +360,7 @@ psycopg2-binary
 
 ---
 
-## 🎯 What Makes This Stand Out
+## What Makes This Stand Out
 
 - **Resume-aware AI questions** — Personalized questions based on your actual resume content
 - **Multi-domain support** — 8+ domains with specific job roles
@@ -373,7 +373,7 @@ psycopg2-binary
 
 ---
 
-## 👩‍💻 Author
+## Author
 
 **PreethiRaghu**
 
