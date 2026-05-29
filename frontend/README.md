@@ -10,13 +10,13 @@
 
 ---
 
-##  About
+## 📌 About
 
 AI Interview Simulator is a full-stack SaaS-style web application built by **PreethiRaghu** for placement preparation. It simulates real interview experiences using AI, analyzes resumes, generates personalized questions, and provides detailed performance feedback — making it stand out as a startup-level project.
 
 ---
 
-## 📸Screenshots
+## 📸 Screenshots
 
 ### 🏠 Landing Page
 ![Landing Page](./screenshot_landing.png)
